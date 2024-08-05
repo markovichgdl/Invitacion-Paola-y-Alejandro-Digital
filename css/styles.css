@@ -1,0 +1,363 @@
+@font-face {
+  font-family: "tropical";
+  src: url("../fonts/TROPICAL\ ROTHELA.otf") format("woff2");
+}
+
+@font-face {
+  font-family: "cherolina";
+  src: url("../fonts/Cherolina.otf") format("woff2");
+}
+
+@font-face {
+  font-family: "gothi";
+  src: url("../fonts/GOTHIC.TTF") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  backdrop-filter: blur(10px); /* Aplica el desenfoque */
+}
+/* Loader */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Gris claro */
+  border-top: 16px solid #333; /* Gris oscuro */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loader-text {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* fin del loader*/
+.wrapper {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* El contenedor principal que limita el ancho */
+.container {
+  display: grid;
+  grid-template-areas:
+    "item1"
+    "item2"
+    "item3"
+    "item4";
+  grid-template-rows: auto; /* Ajusta la altura automáticamente */
+  grid-template-columns: 1fr; /* Ajusta el ancho automáticamente */
+  gap: 7%; /* Espacio entre los elementos */
+  align-items: center; /* Centra verticalmente */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  background-color: #fff;
+}
+
+/* Estilo para item1 que contiene la imagen y los números */
+.item1 {
+  width: 100%;
+  position: relative; /* Necesario para el posicionamiento absoluto de los números */
+}
+
+.item1img img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra todo el área del contenedor */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+.dia,
+.mes,
+.año {
+  position: absolute; /* Permite el posicionamiento absoluto */
+  color: white; /* Color de texto blanco para contrastar con la imagen de fondo */
+  font-family: tropical; /* Usa la fuente personalizada */
+  font-size: clamp(
+    7rem,
+    35vw,
+    16rem
+  ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  z-index: 4; /* Asegura que los números estén por encima de la imagen */
+}
+
+/* Posicionamiento específico para cada número */
+.dia {
+  top: 1%; /* Ajusta según sea necesario */
+  left: 7%; /* Ajusta según sea necesario */
+  letter-spacing: -10px; /* Ajusta el espaciado entre los números 2 y 2 */
+  animation: glow 4s infinite alternate;
+}
+
+.mes {
+  top: 35%; /* Ajusta según sea necesario */
+  left: 7%; /* Ajusta según sea necesario */
+  letter-spacing: 25px; /* Ajusta el espaciado entre los números 2 y 2 */
+  animation: glow 4.5s infinite alternate;
+}
+
+.año {
+  top: 73%; /* Ajusta según sea necesario */
+  left: 7%; /* Ajusta según sea necesario */
+  letter-spacing: -15px; /* Ajusta el espaciado entre los números 2 y 2 */
+  animation: glow 5s infinite alternate;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 2px #fff, 0 0 9px #ccc, 0 0 5px #999, 0 0 7px #666,
+      0 0 25px #333;
+  }
+  50% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #ccc, 0 0 15px #999, 0 0 20px #666,
+      0 0 30px #333;
+  }
+}
+/*fin fecha*/
+
+.item2 {
+  width: 100%;
+  position: relative; /* Necesario para el posicionamiento absoluto del boton */
+}
+
+.item2img img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra todo el área del contenedor */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+.ubicacion-ceremonia {
+  margin-top: 10px;
+}
+.ubicacion-ceremonia img {
+  width: 10%;
+  margin-left: 44%;
+  animation: pulsate 3.2s infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.item3 {
+  width: 100%;
+  position: relative; /* Necesario para el posicionamiento absoluto del boton */
+}
+
+.item3img img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra todo el área del contenedor */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+.ubicacion-recepcion {
+  margin-top: -62%;
+  position: absolute;
+  z-index: 4; /* Asegura que los números estén por encima de la imagen */
+  margin-left: 31%;
+}
+.ubicacion-recepcion img {
+  width: 15%;
+  animation: pulsate 3.2s infinite;
+}
+
+.item4 {
+  width: 100%;
+  position: relative; /* Necesario para el posicionamiento absoluto del boton */
+}
+
+.item4img img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra todo el área del contenedor */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+/*inicio del contador*/
+.countdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  margin-top: 0px;
+  width: 100%;
+  font-family: "Century Gothic";
+  font-size: clamp(
+    1.5rem,
+    2vw,
+    2rem
+  ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  /*font-size: 35px;*/
+  color: #404040;
+  position: absolute;
+  z-index: 4; /* Asegura que los números estén por encima de la imagen */
+  margin-top: -158.5%;
+}
+
+.countdown-item {
+  margin: 0 10px;
+}
+
+.countdown-item span {
+  font-size: clamp(
+    2.5rem,
+    4vw,
+    4rem
+  ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  /*font-size: 70px;*/
+}
+/* fin del contador*/
+
+.mesaderegalos {
+  position: absolute;
+  z-index: 4; /* Asegura que los números estén por encima de la imagen */
+  margin-top: -91%;
+  margin-left: 10%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+  align-items: center;
+  justify-content: center;
+  gap: 0px; /* Espacio entre las columnas */
+}
+
+.noevento {
+  font-family: gothi;
+  font-size: clamp(
+    1rem,
+    4vw,
+    1.8rem
+  ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  /*font-size: 180%;*/
+  color: black;
+  text-decoration: none;
+}
+
+.mesaderegalos img {
+  width: 50%;
+  margin-top: 3.5%;
+  animation: pulsate 3.2s infinite;
+  margin-left: 8%;
+}
+
+.confirmacion {
+  position: relative;
+  z-index: 5; /* Asegura que los números estén por encima de la imagen */
+  display: flex;
+  flex-direction: column; /* Apila los elementos en una columna */
+  align-items: center; /* Centra los elementos horizontalmente dentro del div */
+  text-align: center; /* Centra el texto dentro de los elementos */
+  margin-top: -195%;
+}
+
+.confirmacion img {
+  width: calc(
+    10% + 2vw
+  ); /* Tamaño de la imagen que aumenta con el ancho de la ventana gráfica */
+  /*width: 15%;*/
+  animation: pulsate 3.2s infinite;
+  margin-left: -40%;
+}
+
+.phone-link {
+  padding: 10px 20px;
+  background-color: rgb(255, 255, 255); /* Fondo blanco para el botón */
+  color: black; /* Texto negro para el botón */
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: gothi;
+  font-size: clamp(
+    1rem,
+    3vw,
+    1.8rem
+  ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  /*font-size: 160%;*/
+  margin-left: 25%;
+  margin-top: -11.5%;
+}
+
+/* Media Query para pantallas de laptop en adelante */
+@media (min-width: 1024px) {
+  .wrapper {
+    max-width: 800px; /* Limita el ancho del contenedor a 800px en pantallas grandes */
+  }
+
+  .phone-link {
+    margin-top: -10%;
+  }
+  .ubicacion-recepcion img {
+    width: 15%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .phone-link {
+    margin-top: -8.5%; /* Ajusta el margen para que se vea bien en tabletas */
+  }
+
+  .ubicacion-recepcion img {
+    width: 15%; /* Ajusta el tamaño de la imagen para que sea adecuado para tabletas */
+  }
+
+  .countdown {
+    font-size: clamp(
+      2.5rem,
+      2vw,
+      2rem
+    ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  }
+
+  .countdown-item span {
+    font-size: clamp(
+      4.5rem,
+      4vw,
+      4rem
+    ); /* Tamaño de fuente que cambia con el tamaño de la ventana gráfica */
+  }
+}
